@@ -1,4 +1,4 @@
-/*resource "aws_vpc" "vpc" {
+/* resource "aws_vpc" "vpc" {
   cidr_block           = "${lookup(var.vpc_cidr_block, var.env)}"
   enable_dns_hostnames = "true"
 
@@ -7,11 +7,10 @@
   }
 } */
 
-
-
 data "aws_vpc" "selected" {
   id = "${var.vpc_id}"
 }
+
 
 resource "aws_subnet" "public_sub1" {
   vpc_id                  = "${data.aws_vpc.selected.id}"
@@ -62,7 +61,7 @@ resource "aws_internet_gateway" "igw" {
   tags = {
     Name = "${var.env}-igw"
   }
-} 
+}
 
 resource "aws_eip" "nat_eip" {
   vpc = "true"
@@ -82,7 +81,7 @@ resource "aws_route_table" "pub_rtb" {
 
   route {
     cidr_block = "0.0.0.0/0"
-     gateway_id = "${aws_internet_gateway.igw.id}"
+    gateway_id = "${aws_internet_gateway.igw.id}"
   }
 
   tags = {

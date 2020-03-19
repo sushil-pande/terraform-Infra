@@ -13,9 +13,8 @@ module "vpc"{
 module "apigateway"{
     source = "./module/apigateway"
    # env = "${var.env}"
-   # region = "${var.region}"
-    lambda_arn          = "${module.lambda.lambda_function_arn}"
-   # vpc_id            = "${module.vpc.out_vpc_id}"
+    region = "${var.region}"
+    lambda_arn = "${module.lambda.lambda_function_arn}"
 }
 
 module "lambda" {

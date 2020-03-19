@@ -1,5 +1,5 @@
 variable "profile"{
-    default = "snow"
+    default = "default"
 }
 
 variable "region"{
@@ -11,5 +11,5 @@ variable "env"{
 }
 
 variable "vpc_id" {
-    default = "vpc-a628abdc"
+    default = "vpc-03e7fd99300116c2d"
 }
